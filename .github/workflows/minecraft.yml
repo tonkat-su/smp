@@ -24,6 +24,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./minecraft
-          dockerfile: ./minecraft/Dockerfile
+          file: ./minecraft/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}

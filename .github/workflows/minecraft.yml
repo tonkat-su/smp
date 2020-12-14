@@ -4,7 +4,7 @@ on:
       - minecraft/*
 name: build minecraft server
 jobs:
-  build-minecraft:
+  pipeline:
     runs-on: ubuntu-latest
     steps:
       - name: checkout code

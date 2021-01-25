@@ -9,3 +9,5 @@ whitelist_users:
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}
 - {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance", "level": 4}
+
+route53_zone: tonkat.su

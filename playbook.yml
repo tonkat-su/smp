@@ -125,7 +125,7 @@
       group: "{{ minecraft_group.name }}"
       mode: 0644
 
-  - name: install docker python package
+  - name: install pip requirements
     ansible.builtin.pip:
       name: "{{ item }}"
       state: latest
@@ -133,6 +133,7 @@
       - docker
       - docker-compose
       - PyYAML
+      - boto
 
   - name: start server
     community.docker.docker_compose:
@@ -161,3 +162,23 @@
             tty: true
             stdin_open: true
             restart: unless-stopped
+
+  - name: create route53 a record
+    community.aws.route53:
+      state: present
+      zone: "{{ route53_zone }}"
+      record: "{{ server_name }}"
+      value: "{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+      type: A
+      ttl: 600
+      overwrite: yes
+
+  - name: create route53 srv record
+    community.aws.route53:
+      state: present
+      zone: "{{ route53_zone}}"
+      record: "_minecraft._tcp.{{ server_name }}"
+      value: "5 0 {{ server_port }} {{ server_name }}"
+      type: SRV
+      ttl: 600
+      overwrite: yes

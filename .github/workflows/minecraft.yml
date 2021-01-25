@@ -14,9 +14,10 @@ jobs:
         with:
           targets: playbook.yml
       - name: run playbook
-        uses: bsdlp/action-ansible-playbook@8e51303cbb76cd0b0cb481947ebaf0e2d056db42
+        uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: playbook.yml
+          requirements: ./galaxy-requirements.yml
           directory: ./
           key: ${{secrets.ANSIBLE_SSH_KEY}}
           inventory: |

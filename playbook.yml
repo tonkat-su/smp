@@ -165,9 +165,9 @@
               UID: "{{ minecraft_user.uid }}"
               GID: "{{ minecraft_group.gid }}"
             ports:
-              - "{{ server_port }}:{{ server_port }}"
-              - "{{ server_rcon_port }}:{{ server_rcon_port }}"
-              - "8123:8123"
+              - "{{ server_address }}:{{ server_port }}:{{ server_port }}"
+              - "{{ server_address }}:{{ server_rcon_port }}:{{ server_rcon_port }}"
+              - "{{ server_address }}:8123:8123"
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}"
@@ -178,8 +178,8 @@
           caddy:
             image: caddy:2.2.1-alpine
             ports:
-              - "80:80"
-              - "443:443"
+              - "{{ server_address }}:80:80"
+              - "{{ server_address }}:443:443"
             volumes:
               - type: volume
                 source: caddy-config
@@ -200,7 +200,7 @@
       state: present
       zone: "{{ route53_zone }}"
       record: "{{ server_name }}"
-      value: "{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+      value: "{{ server_address }}"
       type: A
       ttl: 600
       overwrite: yes

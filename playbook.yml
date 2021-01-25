@@ -13,13 +13,11 @@
       create_home: no
 
   - name: ensure smp base directory
-    become: true
     ansible.builtin.file:
       state: directory
       path: /srv/smp
 
   - name: create minecraft data directory
-    become: true
     register: data_dir
     ansible.builtin.file:
       state: directory
@@ -27,9 +25,8 @@
       owner: "{{ minecraft_user.name }}"
 
   - name: write server.properties
-    become: true
     ansible.builtin.template:
-      dest: "{{ data_dir }}/server.properties"
+      dest: "{{ data_dir.path }}/server.properties"
       src: server.properties.j2
       owner: "{{ minecraft_user.name }}"
 
@@ -43,9 +40,8 @@
       whitelist: "{{ whitelist + [item] }}"
 
   - name: write whitelist.json
-    become: true
     ansible.builtin.copy:
-      dest: "{{ data_dir }}/whitelist.json"
+      dest: "{{ data_dir.path }}/whitelist.json"
       content: "{{ whitelist }}"
       owner: "{{ minecraft_user.name }}"
 
@@ -59,19 +55,16 @@
       ops: "{{ ops + [item] }}"
 
   - name: write ops.json
-    become: true
     ansible.builtin.copy:
-      dest: "{{ data_dir }}/ops.json"
+      dest: "{{ data_dir.path }}/ops.json"
       content: "{{ ops }}"
 
   - name: install docker python package
-    become: true
     ansible.builtin.pip:
       name: docker
       state: latest
 
   - name: start server
-    become: true
     community.general.docker_compose:
       project_name: smp
       pull: yes
@@ -90,7 +83,7 @@
               - "25575:25575"
             volumes:
               - type: bind
-                source: "{{ data_dir }}"
+                source: "{{ data_dir.path }}"
                 target: /data
             tty: true
             stdin_open: true

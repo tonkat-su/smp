@@ -179,7 +179,7 @@
   - name: create route53 srv record
     community.aws.route53:
       state: present
-      zone: "{{ route53_zone}}"
+      zone: "{{ route53_zone }}"
       record: "_minecraft._tcp.{{ server_name }}"
       value: "5 0 {{ server_port }} {{ server_name }}"
       type: SRV

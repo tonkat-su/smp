@@ -9,10 +9,6 @@ jobs:
     steps:
       - name: checkout code
         uses: actions/checkout@v2
-      - name: lint ansible playbook
-        uses: ansible/ansible-lint-action@master
-        with:
-          targets: playbook.yml
       - name: run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:

@@ -1,0 +1,15 @@
+on:
+  push:
+    branches:
+    - main
+name: ansible lint
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: lint ansible playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: playbook.yml

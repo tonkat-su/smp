@@ -130,7 +130,7 @@
     ansible.builtin.file:
       state: directory
       path: /srv/caddy/{{ server_name }}
-  
+
   - name: template Caddyfile
     ansible.builtin.template:
       dest: "{{ caddy_base_dir.path }}/Caddyfile"

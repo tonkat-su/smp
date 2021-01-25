@@ -167,7 +167,7 @@
             ports:
               - "{{ server_address }}:{{ server_port }}:{{ server_port }}"
               - "{{ server_address }}:{{ server_rcon_port }}:{{ server_rcon_port }}"
-              - "{{ server_address }}:8123:8123"
+              - "8123"
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}"
@@ -190,16 +190,7 @@
               - type: bind
                 source: "{{ caddy_base_dir.path }}/Caddyfile"
                 target: /etc/caddy/Caddyfile
-              - type: bind
-                source: "{{ data_dir.path }}/plugins/dynmap/web"
-                target: /var/www/html
             restart: unless-stopped
-          php:
-            image: php:8.0.1-fpm-alpine3.13
-            volumes:
-              - type: bind
-                source: "{{ data_dir.path }}/plugins/dynmap/web"
-                target: /var/www/html
         volumes:
           caddy-config:
           caddy-data:

@@ -1,4 +1,3 @@
 {{ server_name }}
 
-root * /var/www/html
-php_fastcgi php:9000
+reverse_proxy server:8123

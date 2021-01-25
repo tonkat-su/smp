@@ -132,7 +132,6 @@
       path: /srv/caddy/{{ server_name }}
   
   - name: template Caddyfile
-    register: caddyfile
     ansible.builtin.template:
       dest: "{{ caddy_base_dir.path }}/Caddyfile"
       src: Caddyfile.j2
@@ -189,7 +188,7 @@
                 source: caddy-data
                 target: /data
               - type: bind
-                source: "{{ caddyfile.path }}"
+                source: "{{ caddy_base_dir.path }}/Caddyfile"
                 target: /etc/caddy/Caddyfile
             restart: unless-stopped
         volumes:

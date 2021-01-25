@@ -85,6 +85,14 @@
       group: "{{ minecraft_group.name }}"
       mode: 0644
 
+  - name: install luckperms
+    ansible.builtin.get_url:
+      dest: "{{ data_dir.path }}/plugins/luckperms.jar"
+      url: "{{ luckperms_download_url }}"
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0644
+
   - name: install docker python package
     ansible.builtin.pip:
       name: "{{ item }}"

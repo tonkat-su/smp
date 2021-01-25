@@ -6,6 +6,12 @@
   become_user: root
 
   tasks:
+  - name: create smp user
+    register: minecraft_user
+    ansible.builtin.user:
+      name: minecraft
+      create_home: no
+
   - name: ensure smp base directory
     ansible.builtin.file:
       state: directory
@@ -16,8 +22,7 @@
     ansible.builtin.file:
       state: directory
       path: "/srv/smp/{{ server_name }}"
-      owner: '1000'
-      group: '1000'
+      owner: "{{ minecraft_user.name }}"
 
   - name: install docker python package
     ansible.builtin.pip:

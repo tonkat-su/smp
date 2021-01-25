@@ -5,6 +5,8 @@ on:
 name: deploy minecraft server
 jobs:
   deploy:
+    strategy:
+      max-parallel: 1
     runs-on: ubuntu-latest
     steps:
       - name: checkout code

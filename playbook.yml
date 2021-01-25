@@ -136,6 +136,7 @@
       - boto
 
   - name: start server
+    register: server_container
     community.docker.docker_compose:
       project_name: smp
       pull: yes

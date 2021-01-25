@@ -1,3 +1,5 @@
 {{ server_name }}
 
-reverse_proxy server:8123
+root * /var/www/dynmap
+php_fastcgi php:9000
+file_server

@@ -24,15 +24,11 @@
       path: "/srv/smp/{{ server_name }}"
       owner: "{{ minecraft_user.name }}"
 
-  - name: install docker python package
-    ansible.builtin.pip:
-      name: docker
-      state: latest
-
   - name: write server.properties
     ansible.builtin.template:
       dest: "{{ data_dir }}/server.properties"
       src: server.properties.j2
+      owner: "{{ minecraft_user.name }}"
 
   - name: set whitelist
     set_fact:
@@ -47,6 +43,7 @@
     ansible.builtin.copy:
       dest: "{{ data_dir }}/whitelist.json"
       content: "{{ whitelist }}"
+      owner: "{{ minecraft_user.name }}"
 
   - name: set ops
     set_fact:
@@ -61,6 +58,11 @@
     ansible.builtin.copy:
       dest: "{{ data_dir }}/ops.json"
       content: "{{ ops }}"
+
+  - name: install docker python package
+    ansible.builtin.pip:
+      name: docker
+      state: latest
 
   - name: start server
     community.general.docker_compose:

@@ -125,6 +125,19 @@
       group: "{{ minecraft_group.name }}"
       mode: 0644
 
+  - name: ensure caddy base directory
+    register: caddy_base_dir
+    ansible.builtin.file:
+      state: directory
+      path: /srv/caddy/{{ server_name }}
+  
+  - name: template Caddyfile
+    register: caddyfile
+    ansible.builtin.template:
+      dest: "{{ caddy_base_dir }}/Caddyfile"
+      src: Caddyfile.j2
+      mode: 0644
+
   - name: install pip requirements
     ansible.builtin.pip:
       name: "{{ item }}"
@@ -163,6 +176,25 @@
             tty: true
             stdin_open: true
             restart: unless-stopped
+          caddy:
+            image: caddy:2.2.1-alpine
+            ports:
+              - "80:80"
+              - "443:443"
+            volumes:
+              - type: volume
+                source: caddy-config
+                target: /config
+              - type: volume
+                source: caddy-data
+                target: /data
+              - type: bind
+                source: "{{ caddyfile.path }}"
+                target: /etc/caddy/Caddyfile
+            restart: unless-stopped
+        volumes:
+          caddy-config:
+          caddy-data:
 
   - name: create route53 a record
     community.aws.route53:

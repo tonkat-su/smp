@@ -1,6 +1,6 @@
 ---
 - name: install smp
-  role: smp
+  hosts: smp
   remote_user: ansible
   become: yes
   become_user: root

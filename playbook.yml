@@ -151,8 +151,8 @@
               UID: "{{ minecraft_user.uid }}"
               GID: "{{ minecraft_group.gid }}"
             ports:
-              - "25565:25565"
-              - "25575:25575"
+              - "{{ server_port }}:{{ server_port }}"
+              - "{{ server_rcon_port }}:{{ server_rcon_port }}"
               - "8123:8123"
             volumes:
               - type: bind

@@ -12,7 +12,7 @@ jobs:
       - name: lint ansible playbook
         uses: ansible/ansible-lint-action@master
         with:
-        targets: playbook.yml
+          targets: playbook.yml
       - name: run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:

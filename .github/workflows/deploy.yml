@@ -13,9 +13,6 @@ jobs:
         uses: actions/checkout@v2
       - name: run playbook
         uses: dawidd6/action-ansible-playbook@v2
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           playbook: playbook.yml
           requirements: ./galaxy-requirements.yml
@@ -25,4 +22,4 @@ jobs:
             [smp]
             107.150.36.10
           options: |
-            --extra-vars "rcon_password=${{secrets.RCON_PASSWORD}} level_seed=${{secrets.LEVEL_SEED}}"
+            --extra-vars "rcon_password=${{secrets.RCON_PASSWORD}} level_seed=${{secrets.LEVEL_SEED}} aws_access_key_id=${{secrets.AWS_ACCESS_KEY_ID}} aws_secret_access_key=${{secrets.AWS_SECRET_ACCESS_KEY}}"

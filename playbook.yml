@@ -100,7 +100,7 @@
       state: directory
       owner: "{{ minecraft_user.name }}"
       group: "{{ minecraft_group.name }}"
-  
+
   - name: write luckperms config
     ansible.builtin.template:
       dest: "{{ luckperms_dir.path }}/config.yml"
@@ -116,7 +116,7 @@
       state: directory
       owner: "{{ minecraft_user.name }}"
       group: "{{ minecraft_group.name }}"
-  
+
   - name: write dynmap config
     ansible.builtin.template:
       dest: "{{ dynmap_config_dir.path }}/configuration.txt"

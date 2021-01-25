@@ -29,12 +29,14 @@
       state: directory
       path: "/srv/smp/{{ server_name }}"
       owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
 
   - name: write server.properties
     ansible.builtin.template:
       dest: "{{ data_dir.path }}/server.properties"
       src: server.properties.j2
       owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
 
   - name: set whitelist
     set_fact:
@@ -50,6 +52,7 @@
       dest: "{{ data_dir.path }}/whitelist.json"
       content: "{{ whitelist }}"
       owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
 
   - name: set ops
     set_fact:
@@ -64,10 +67,23 @@
     ansible.builtin.copy:
       dest: "{{ data_dir.path }}/ops.json"
       content: "{{ ops }}"
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+
+  - name: create plugins directory
+    ansible.builtin.file:
+      dest: "{{ data_dir.path }}/plugins"
+      state: directory
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
 
   - name: install dynmap
     ansible.builtin.get_url:
-      dest: "{{ data_dir.path }}/"
+      dest: "{{ data_dir.path }}/plugins/dynmap.jar"
+      url: "{{ dynmap_download_url }}"
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0644
 
   - name: install docker python package
     ansible.builtin.pip:

@@ -1,3 +1,11 @@
 ---
 dynmap_download_url: https://dynmap.us/releases/Dynmap-3.1-beta6-spigot.jar
 luckperms_download_url: https://ci.lucko.me/job/LuckPerms/1258/artifact/bukkit/build/libs/LuckPerms-Bukkit-5.2.92.jar
+
+whitelist_users:
+- {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp"}
+- {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance"}
+
+ops:
+- {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}
+- {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance", "level": 4}

@@ -110,7 +110,7 @@
         version: '2.4'
         services:
           server:
-            image: itzg/minecraft-server
+            image: itzg/minecraft-server:adopt11
             environment:
               EULA: 'TRUE'
               TYPE: PAPER

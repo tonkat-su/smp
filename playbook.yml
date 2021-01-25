@@ -6,11 +6,17 @@
   become_user: root
 
   tasks:
+  - name: create smp group
+    register: minecraft_group
+    ansible.builtin.group:
+      name: minecraft
+
   - name: create smp user
     register: minecraft_user
     ansible.builtin.user:
       name: minecraft
       create_home: no
+      group: "{{ minecraft_group.name }}"
 
   - name: ensure smp base directory
     ansible.builtin.file:
@@ -59,6 +65,10 @@
       dest: "{{ data_dir.path }}/ops.json"
       content: "{{ ops }}"
 
+  - name: install dynmap
+    ansible.builtin.get_url:
+      dest: "{{ data_dir.path }}/"
+
   - name: install docker python package
     ansible.builtin.pip:
       name: "{{ item }}"
@@ -82,9 +92,12 @@
               TYPE: SPIGOT
               USE_AIKAR_FLAGS: 'true'
               MEMORY: "{{ server_memory }}"
+              UID: "{{ minecraft_user.uid }}"
+              GID: "{{ minecraft_group.gid }}"
             ports:
               - "25565:25565"
               - "25575:25575"
+              - "8123:8123"
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}"

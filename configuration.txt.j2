@@ -38,63 +38,29 @@ storage:
 components:
   - class: org.dynmap.ClientConfigurationComponent
   
-  - class: org.dynmap.InternalClientUpdateComponent
+  - class: org.dynmap.JsonFileClientUpdateComponent
+    writeinterval: 1
     sendhealth: true
     sendposition: true
     allowwebchat: true
     webchat-interval: 5
     hidewebchatip: false
-    trustclientname: false
     includehiddenplayers: false
-    # (optional) if true, color codes in player display names are used
     use-name-colors: false
-    # (optional) if true, player login IDs will be used for web chat when their IPs match
     use-player-login-ip: true
-    # (optional) if use-player-login-ip is true, setting this to true will cause chat messages not matching a known player IP to be ignored
     require-player-login-ip: false
-    # (optional) block player login IDs that are banned from chatting
     block-banned-player-chat: true
-    # Require login for web-to-server chat (requires login-enabled: true)
+    hideifshadow: 0
+    hideifundercover: 0
+    hideifsneaking: false
+  # Require login for web-to-server chat (requires login-enabled: true)
     webchat-requires-login: false
     # If set to true, users must have dynmap.webchat permission in order to chat
     webchat-permissions: false
     # Limit length of single chat messages
     chatlengthlimit: 256
-  #  # Optional - make players hidden when they are inside/underground/in shadows (#=light level: 0=full shadow,15=sky)
-  #  hideifshadow: 4
-  #  # Optional - make player hidden when they are under cover (#=sky light level,0=underground,15=open to sky)
-  #  hideifundercover: 14
-  #  # (Optional) if true, players that are crouching/sneaking will be hidden 
-    hideifsneaking: false
-    # If true, player positions/status is protected (login with ID with dynmap.playermarkers.seeall permission required for info other than self)
-    protected-player-info: false
-    # If true, hide players with invisibility potion effects active
     hide-if-invisiblity-potion: true
-    # If true, player names are not shown on map, chat, list
     hidenames: false
-  #- class: org.dynmap.JsonFileClientUpdateComponent
-  #  writeinterval: 1
-  #  sendhealth: true
-  #  sendposition: true
-  #  allowwebchat: true
-  #  webchat-interval: 5
-  #  hidewebchatip: false
-  #  includehiddenplayers: false
-  #  use-name-colors: false
-  #  use-player-login-ip: false
-  #  require-player-login-ip: false
-  #  block-banned-player-chat: true
-  #  hideifshadow: 0
-  #  hideifundercover: 0
-  #  hideifsneaking: false
-  #  # Require login for web-to-server chat (requires login-enabled: true)
-  #  webchat-requires-login: false
-  #  # If set to true, users must have dynmap.webchat permission in order to chat
-  #  webchat-permissions: false
-  #  # Limit length of single chat messages
-  #  chatlengthlimit: 256
-  #  hide-if-invisiblity-potion: true
-  #  hidenames: false
    
   - class: org.dynmap.SimpleWebChatComponent
     allowchat: true

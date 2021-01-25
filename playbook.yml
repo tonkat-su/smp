@@ -93,6 +93,22 @@
       group: "{{ minecraft_group.name }}"
       mode: 0644
 
+  - name: create luckperms dir
+    register: luckperms_dir
+    ansible.builtin.file:
+      dest: "{{ data_dir.path }}/plugins/LuckPerms"
+      state: directory
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+  
+  - name: write luckperms config
+    ansible.builtin.template:
+      dest: "{{ luckperms_dir.path }}/config.yml"
+      src: luckperms.yml.j2
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0644
+
   - name: install docker python package
     ansible.builtin.pip:
       name: "{{ item }}"

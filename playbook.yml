@@ -1,0 +1,83 @@
+---
+- name: install smp
+  role: smp
+  remote_user: ansible
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: ensure smp base directory
+    ansible.builtin.file:
+      state: directory
+      path: /srv/smp
+
+  - name: create minecraft data directory
+    register: data_dir
+    ansible.builtin.file:
+      state: directory
+      path: "/srv/smp/{{ server_name }}"
+      owner: 1000
+      group: 1000
+
+  - name: install docker python package
+    ansible.builtin.pip:
+      name: docker
+      state: latest
+
+  - name: write server.properties
+    ansible.builtin.template:
+      dest: "{{ data_dir.dest }}/server.properties"
+      src: server.properties.j2
+
+  - name: set whitelist
+    set_fact:
+      whitelist: []
+
+  - name: add to whitelist
+    loop: "{{ whitelist_users }}"
+    set_fact:
+      whitelist: "{{ whitelist + [item] }}"
+
+  - name: write whitelist.json
+    ansible.builtin.copy:
+      dest: "{{ data_dir.dest }}/whitelist.json"
+      content: "{{ whitelist }}"
+
+  - name: set ops
+    set_fact:
+      ops: []
+
+  - name: add to ops.json
+    loop: "{{ ops }}"
+    set_fact:
+      ops: "{{ ops + [item] }}"
+
+  - name: write ops.json
+    ansible.builtin.copy:
+      dest: "{{ data_dir.dest }}/ops.json"
+      content: "{{ ops }}"
+
+  - name: start server
+    community.general.docker_compose:
+      project_name: smp
+      pull: yes
+      definition:
+        version: '2.4'
+        services:
+          server:
+            image: itzg/minecraft-server
+            environment:
+              EULA: 'TRUE'
+              TYPE: SPIGOT
+              USE_AIKAR_FLAGS: 'true'
+              MEMORY: "{{ server_memory }}"
+            ports:
+              - "25565:25565"
+              - "25575:25575"
+            volumes:
+              - type: bind
+                source: "{{ data_dir.dest }}"
+                target: /data
+            tty: true
+            stdin_open: true
+            restart: unless-stopped

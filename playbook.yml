@@ -134,7 +134,7 @@
   - name: template Caddyfile
     register: caddyfile
     ansible.builtin.template:
-      dest: "{{ caddy_base_dir }}/Caddyfile"
+      dest: "{{ caddy_base_dir.path }}/Caddyfile"
       src: Caddyfile.j2
       mode: 0644
 

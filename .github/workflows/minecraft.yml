@@ -14,7 +14,7 @@ jobs:
         with:
           targets: playbook.yml
       - name: run playbook
-        uses: dawidd6/action-ansible-playbook@v2
+        uses: bsdlp/action-ansible-playbook@8e51303cbb76cd0b0cb481947ebaf0e2d056db42
         with:
           playbook: playbook.yml
           directory: ./

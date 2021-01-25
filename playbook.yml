@@ -113,7 +113,7 @@
             image: itzg/minecraft-server
             environment:
               EULA: 'TRUE'
-              TYPE: SPIGOT
+              TYPE: PAPER
               USE_AIKAR_FLAGS: 'true'
               MEMORY: "{{ server_memory }}"
               UID: "{{ minecraft_user.uid }}"

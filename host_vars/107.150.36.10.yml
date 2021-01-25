@@ -10,3 +10,4 @@ ops:
 server_memory: 12G
 server_name: mc.tonkat.su
 motd: tonkat.su yummy yum
+dynmap_download_url: https://dynmap.us/releases/Dynmap-3.1-beta6-spigot.jar

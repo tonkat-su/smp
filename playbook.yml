@@ -167,7 +167,6 @@
             ports:
               - "{{ server_address }}:{{ server_port }}:{{ server_port }}"
               - "{{ server_address }}:{{ server_rcon_port }}:{{ server_rcon_port }}"
-              - "{{ server_address }}:8123:8123"
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}"

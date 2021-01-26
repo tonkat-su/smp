@@ -198,7 +198,8 @@
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}/plugins/dynmap/web"
-                target: /var/www/dynmap
+                target: /var/www/html
+            user: "{{ minecraft_user.uid }}:{{ minecraft_group.gid }}"
         volumes:
           caddy-config:
           caddy-data:

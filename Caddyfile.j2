@@ -1,5 +1,5 @@
 {{ server_name }}
 
-root /var/www/dynmap
+root * /var/www/dynmap
 php_fastcgi /standalone/* up.php gettiles.php php:9000
 file_server

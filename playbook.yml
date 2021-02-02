@@ -164,6 +164,7 @@
               MEMORY: "{{ server_memory }}"
               UID: "{{ minecraft_user.uid }}"
               GID: "{{ minecraft_group.gid }}"
+              VERSION: "{{ minecraft_version }}"
             ports:
               - "{{ server_address }}:{{ server_port }}:{{ server_port }}"
               - "{{ server_address }}:{{ server_rcon_port }}:{{ server_rcon_port }}"

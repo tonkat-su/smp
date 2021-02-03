@@ -93,14 +93,6 @@
       group: "{{ minecraft_group.name }}"
       mode: 0644
 
-  - name: install chunkymap
-    ansible.builtin.get_url:
-      dest: "{{ data_dir.path }}/plugins/chunkymap.jar"
-      url: "{{ chunkymap_download_url }}"
-      owner: "{{ minecraft_user.name }}"
-      group: "{{ minecraft_group.name }}"
-      mode: 0644
-
   - name: create luckperms dir
     register: luckperms_dir
     ansible.builtin.file:

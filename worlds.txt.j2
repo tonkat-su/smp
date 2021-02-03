@@ -52,3 +52,12 @@ worlds:
         shader: rainfall
         lighting: default
         mapzoomin: 3
+      - class: de.lemaik.chunkymap.dynmap.ChunkyMap
+        name: chunkymapsurface
+        title: "Chunky Surface"
+        prefix: cms
+        perspective: iso_SE_30_hires
+        chunkythreads: {{ ansible_processor_vcpus // 2 }}
+        texturepackVersion: {{ minecraft_version }}
+        denoiser:
+          enabled: true

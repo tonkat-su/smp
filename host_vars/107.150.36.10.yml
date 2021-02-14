@@ -5,3 +5,4 @@ server_port: 25565
 server_rcon_port: 25575
 server_address: 107.150.36.11
 motd: tonkat.su yummy yum
+difficulty: hard

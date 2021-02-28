@@ -1,7 +1,7 @@
 ---
 minecraft_version: 1.16.5
 dynmap_download_url: https://dynmap.us/releases/Dynmap-3.1-beta6-spigot.jar
-luckperms_download_url: https://ci.lucko.me/job/LuckPerms/lastSuccessfulBuild/artifact/bukkit/loader/build/libs/LuckPerms-Bukkit-5.2.113.jar
+luckperms_download_url: https://ci.lucko.me/job/LuckPerms/1286/artifact/bukkit/loader/build/libs/LuckPerms-Bukkit-5.2.120.jar
 eternallight_download_url: https://github.com/Masstrix/Eternal-Light/releases/download/1.7/EternalLight-1.7.jar
 
 whitelist_users:

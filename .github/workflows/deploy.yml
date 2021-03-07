@@ -12,12 +12,10 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
       - name: write ssh private key
-        uses: DamianReeves/write-file-action@v1.0
-        with:
-          path: ./id_ed25519
-          contents: |+
-            ${{ secrets.BACKUP_SSH_PRIVATE_KEY }}
-
+        run: 'echo "$SSH_KEY" > ./id_ed25519'
+        shell: bash
+        env:
+          SSH_KEY: ${{ secrets.BACKUP_SSH_PRIVATE_KEY }}
       - name: run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:

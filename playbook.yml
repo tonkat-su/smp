@@ -177,9 +177,9 @@
 
   - name: write backup ssh private key
     register: backup_ssh_key
-    ansible.builtin.template:
+    ansible.builtin.copy:
       dest: "{{ backup_ssh_config_dir.path }}/id_ed25519"
-      src: backup_ssh_key.j2
+      src: id_ed25519
       mode: 0600
 
   - name: write backup ssh config

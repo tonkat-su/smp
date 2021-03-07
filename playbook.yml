@@ -197,6 +197,7 @@
             environment:
               BACKUP_NAME: "{{ server_name }}"
               BACKUP_INTERVAL: "{{ backup_interval }}"
+              RCON_HOST: server
               RCON_PORT: "{{ server_rcon_port }}"
               RCON_PASSWORD: "{{ rcon_password }}"
               EXCLUDES: "*.jar,cache,logs,*.hash,*.png"
@@ -211,7 +212,6 @@
               - type: volume
                 source: server-backups
                 target: /backups
-            network_mode: "service:server"
           caddy:
             image: caddy:2.2.1-alpine
             ports:

@@ -163,6 +163,40 @@
       - PyYAML
       - boto
 
+  - name: create backup ssh dir
+    register: backup_ssh_config_dir
+    ansible.builtin.file:
+      state: directory
+      path: "/srv/backup/{{ server_name }}/ssh"
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+
+  - name: write backup ssh known hosts file
+    register: backup_ssh_known_hosts_file
+    ansible.builtin.template:
+      dest: "{{ backup_ssh_config_dir.path }}/known_hosts"
+      src: backup_ssh_known_hosts.j2
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0644
+
+  - name: write backup ssh private key
+    register: backup_ssh_key
+    ansible.builtin.template:
+      dest: "{{ backup_ssh_config_dir.path }}/id_ed25519"
+      src: backup_ssh_key.j2
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0600
+
+  - name: write backup ssh config
+    ansible.builtin.template:
+      dest: "{{ backup_ssh_config_dir.path }}/config"
+      src: backup_ssh_config.j2
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_group.name }}"
+      mode: 0644
+
   - name: start server
     register: server_container
     community.docker.docker_compose:
@@ -195,6 +229,8 @@
             image: itzg/mc-backup
             hostname: mc-tonkat-su-backup
             environment:
+              UID: "{{ minecraft_user.uid }}"
+              GID: "{{ minecraft_group.gid }}"
               BACKUP_NAME: "{{ server_name }}"
               BACKUP_INTERVAL: "{{ backup_interval }}"
               RCON_HOST: server
@@ -203,12 +239,15 @@
               EXCLUDES: "*.jar,cache,logs,*.hash,*.png"
               BACKUP_METHOD: restic
               RESTIC_PASSWORD: "{{ rsync_storage_password }}"
-              RESTIC_REPOSITORY: "sftp:{{ rsync_storage_user }}@{{ rsync_storage_host }}:{{ rsync_storage_path }}"
+              RESTIC_REPOSITORY: "sftp:{{ rsync_storage_host }}:{{ rsync_storage_path }}"
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}"
                 target: /data
                 read_only: true
+              - type: bind
+                source: "{{ backup_ssh_config_dir.path }}"
+                target: /root/.ssh
               - type: volume
                 source: server-backups
                 target: /backups

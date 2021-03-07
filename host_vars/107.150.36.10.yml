@@ -10,3 +10,7 @@ difficulty: hard
 rsync_storage_user: de1053
 rsync_storage_host: de1053.rsync.net
 rsync_storage_path: mc.tonkat.su/backups
+
+backup_ssh_known_hosts: |
+  de1053.rsync.net ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBC2wi3kWdaW4W+tRu0uq8hhY1ffFbzZ4KCh0FUhFw0GIb8lWWvVnGInc9Tr538k0ZICFSSbs5faMgpMuHSX8QvU=
+  de1053.rsync.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIObQN4P/deJ/k4P4kXh6a9K4Q89qdyywYetp9h3nwfPo

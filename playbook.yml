@@ -192,7 +192,7 @@
             stdin_open: true
             restart: unless-stopped
           backup:
-            image: itzg/docker-mc-backup
+            image: itzg/mc-backup
             hostname: mc-tonkat-su-backup
             environment:
               BACKUP_NAME: "{{ server_name }}"

@@ -15,7 +15,9 @@ jobs:
         uses: DamianReeves/write-file-action@v1.0
         with:
           path: ./id_ed25519
-          contents: ${{ secrets.BACKUP_SSH_PRIVATE_KEY }}
+          contents: |+
+            ${{ secrets.BACKUP_SSH_PRIVATE_KEY }}
+
       - name: run playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:

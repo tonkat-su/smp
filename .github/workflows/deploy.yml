@@ -22,4 +22,4 @@ jobs:
             [smp]
             107.150.36.10
           options: |
-            --extra-vars "rcon_password=${{secrets.RCON_PASSWORD}} level_seed=${{secrets.LEVEL_SEED}} aws_access_key_id=${{secrets.AWS_ACCESS_KEY_ID}} aws_secret_access_key=${{secrets.AWS_SECRET_ACCESS_KEY}}"
+            --extra-vars "rcon_password=${{secrets.RCON_PASSWORD}} level_seed=${{secrets.LEVEL_SEED}} aws_access_key_id=${{secrets.AWS_ACCESS_KEY_ID}} aws_secret_access_key=${{secrets.AWS_SECRET_ACCESS_KEY}} rsync_storage_password=${{secrets.RSYNC_STORAGE_PASSWORD}}"

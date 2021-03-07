@@ -20,3 +20,5 @@ ops:
 - {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance", "level": 4}
 
 route53_zone: tonkat.su
+
+backup_interval: 2h

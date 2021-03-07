@@ -191,6 +191,27 @@
             tty: true
             stdin_open: true
             restart: unless-stopped
+          backup:
+            image: itzg/docker-mc-backup
+            hostname: mc-tonkat-su-backup
+            environment:
+              BACKUP_NAME: "{{ server_name }}"
+              BACKUP_INTERVAL: "{{ backup_interval }}"
+              RCON_PORT: "{{ server_rcon_port }}"
+              RCON_PASSWORD: "{{ rcon_password }}"
+              EXCLUDES: "*.jar,cache,logs,*.hash,*.png"
+              BACKUP_METHOD: restic
+              RESTIC_PASSWORD: "{{ rsync_storage_password }}"
+              RESTIC_REPOSITORY: "sftp:{{ rsync_storage_user }}@{{ rsync_storage_host }}:{{ rsync_storage_path }}"
+            volumes:
+              - type: bind
+                source: "{{ data_dir.path }}"
+                target: /data
+                read_only: true
+              - type: volume
+                source: server-backups
+                target: /backups
+            network_mode: "service:server"
           caddy:
             image: caddy:2.2.1-alpine
             ports:
@@ -221,6 +242,7 @@
         volumes:
           caddy-config:
           caddy-data:
+          server-backups:
 
   - name: create route53 a record
     community.aws.route53:

@@ -224,7 +224,7 @@
               RCON_HOST: server
               RCON_PORT: "{{ server_rcon_port }}"
               RCON_PASSWORD: "{{ rcon_password }}"
-              EXCLUDES: "*.jar,cache,logs,*.hash,*.png"
+              EXCLUDES: "*.jar,cache,logs,*.hash,*.png,*.jpg"
               BACKUP_METHOD: restic
               RESTIC_PASSWORD: "{{ rsync_storage_password }}"
               RESTIC_REPOSITORY: "sftp:{{ rsync_storage_user }}@{{ rsync_storage_host }}:{{ rsync_storage_path }}"

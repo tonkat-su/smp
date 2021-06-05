@@ -14,6 +14,9 @@ whitelist_users:
 - {"uuid": "04922856-fe77-4203-b3dc-52c175f22c52", "name": "Tigglywuff"}
 - {"uuid": "817d6eb0-7f1b-4121-b2b6-0eb3c1ebdc66", "name": "MuchJokes"}
 - {"uuid": "7eeb47a5-7eb0-4e7f-b4a7-a131955dd72a", "name": "snootcat"}
+- {"uuid": "2fc38d53-5cee-4867-abf4-473649aab2be", "name": "Buhlaine"}
+- {"uuid": "caf791a1-59cd-4475-822d-cfd3dee3ab1e", "name": "Tedsfriends"}
+- {"uuid": "20e79d80-71bb-4ea7-a314-0bfbfaef7dfc", "name": "kcjn"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

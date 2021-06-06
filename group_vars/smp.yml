@@ -19,6 +19,7 @@ whitelist_users:
 - {"uuid": "20e79d80-71bb-4ea7-a314-0bfbfaef7dfc", "name": "kcjn"}
 - {"uuid": "98aeac3b-285b-4c00-871e-73a5e1eb1fc2", "name": "jseg1234"}
 - {"uuid": "3efa40c8-e2a7-4211-affb-4724a3638bdb", "name": "Patiun"}
+- {"uuid": "74909675-ae75-4674-8e34-eadf92c6623d", "name": "technicalliy"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

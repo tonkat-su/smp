@@ -199,7 +199,6 @@
             image: itzg/minecraft-server:adopt11
             environment:
               EULA: 'TRUE'
-              TYPE: PAPER
               USE_AIKAR_FLAGS: 'true'
               MEMORY: "{{ server_memory }}"
               UID: "{{ minecraft_user.uid }}"

@@ -196,7 +196,7 @@
         version: '2.4'
         services:
           server:
-            image: itzg/minecraft-server:adopt11
+            image: itzg/minecraft-server:latest
             environment:
               EULA: 'TRUE'
               USE_AIKAR_FLAGS: 'true'

@@ -23,6 +23,7 @@ whitelist_users:
 - {"uuid": "f44e9269-8c51-4999-a5c1-f26f8abfb1fb", "name": "tokyoxboat"}
 - {"uuid": "f9d25995-3fdf-4b96-bb1f-cac6d58419ee", "name": "Lutin"}
 - {"uuid": "4fbb085e-5b57-4cee-a01b-78c99a1d902d", "name": "PicardsFlute"}
+- {"uuid": "fd411324-6429-4607-84d8-68334d0d43ae", "name": "RiskieBoots"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

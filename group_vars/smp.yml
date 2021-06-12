@@ -24,6 +24,8 @@ whitelist_users:
 - {"uuid": "f9d25995-3fdf-4b96-bb1f-cac6d58419ee", "name": "Lutin"}
 - {"uuid": "4fbb085e-5b57-4cee-a01b-78c99a1d902d", "name": "PicardsFlute"}
 - {"uuid": "fd411324-6429-4607-84d8-68334d0d43ae", "name": "RiskieBoots"}
+- {"uuid": "1d9d7d38-26c8-42b4-b6ea-d6d2f847b5c1", "name": "AlexT155"}
+- {"uuid": "fb9bf6ce-e4d6-4f7c-bfc7-83ac0bdf3966", "name": "graceinyoface"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

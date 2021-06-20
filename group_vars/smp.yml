@@ -6,7 +6,6 @@ eternallight_download_url: https://github.com/Masstrix/Eternal-Light/releases/do
 
 whitelist_users:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp"}
-- {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance"}
 - {"uuid": "956a2d87-2f27-4711-8816-05b0bb5b2cd5", "name": "ImBith"}
 - {"uuid": "aceb98d5-bd86-4c54-9ca5-bb3816478e38", "name": "Afadra"}
 - {"uuid": "5bc84748-aac0-482e-9c6b-930acde03c15", "name": "scholtez"}
@@ -30,7 +29,6 @@ whitelist_users:
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}
-- {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance", "level": 4}
 
 route53_zone: tonkat.su
 

@@ -204,7 +204,7 @@
               UID: "{{ minecraft_user.uid }}"
               GID: "{{ minecraft_group.gid }}"
               VERSION: "{{ minecraft_version }}"
-              TYPE: 'SPIGOT'
+              TYPE: 'PAPER'
             ports:
               - "{{ server_address }}:{{ server_port }}:{{ server_port }}"
               - "{{ server_address }}:{{ server_rcon_port }}:{{ server_rcon_port }}"

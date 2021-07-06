@@ -26,6 +26,7 @@ whitelist_users:
 - {"uuid": "1d9d7d38-26c8-42b4-b6ea-d6d2f847b5c1", "name": "AlexT155"}
 - {"uuid": "fb9bf6ce-e4d6-4f7c-bfc7-83ac0bdf3966", "name": "graceinyoface"}
 - {"uuid": "067e2ada-3eff-4204-9ca0-9317f8195790", "name": "shellbae"}
+- {"uuid": "527c6458-5ba7-4a41-b40b-779c56258b1f", "name": "ThatRyanB"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

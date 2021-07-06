@@ -70,6 +70,13 @@
       owner: "{{ minecraft_user.name }}"
       group: "{{ minecraft_group.name }}"
 
+  - name: write paper.yml
+    ansible.builtin.copy:
+      dest: "{{ data_dir.path }}/paper.yml"
+      src: "paper.yml"
+      owner: "{{ minecraft_user.name }}"
+      group: "{{ minecraft_user.name }}"
+
   - name: create plugins directory
     ansible.builtin.file:
       dest: "{{ data_dir.path }}/plugins"

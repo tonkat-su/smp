@@ -1,6 +1,6 @@
 ---
-minecraft_version: 1.17
-dynmap_download_url: https://dynmap.us/releases/Dynmap-3.2-beta-2-spigot.jar
+minecraft_version: 1.17.1
+dynmap_download_url: https://github.com/webbukkit/dynmap/releases/download/v3.2.1/Dynmap-3.2.1-spigot.jar
 luckperms_download_url: https://ci.lucko.me/job/LuckPerms/1345/artifact/bukkit/loader/build/libs/LuckPerms-Bukkit-5.3.47.jar
 eternallight_download_url: https://github.com/Masstrix/Eternal-Light/releases/download/1.7/EternalLight-1.7.jar
 
@@ -27,6 +27,7 @@ whitelist_users:
 - {"uuid": "fb9bf6ce-e4d6-4f7c-bfc7-83ac0bdf3966", "name": "graceinyoface"}
 - {"uuid": "067e2ada-3eff-4204-9ca0-9317f8195790", "name": "shellbae"}
 - {"uuid": "527c6458-5ba7-4a41-b40b-779c56258b1f", "name": "ThatRyanB"}
+- {"uuid": "e7b5d739-a094-40bc-b266-27604bcca9ae", "name": "ouroboronn"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

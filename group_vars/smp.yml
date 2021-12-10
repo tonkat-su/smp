@@ -32,6 +32,8 @@ whitelist_users:
 - {"uuid": "6cce639b-fee2-45b1-9c31-e5bf7269630d", "name": "odiistorm"}
 - {"uuid": "b9c5228b-0510-4117-80bc-9129c67c2b4d", "name": "Resdan_"}
 - {"uuid": "8cf8beb8-4dd5-4264-9ff8-a0257a7038fe", "name": "Rainefan"}
+- {"uuid": "83ab4b1f-9c10-4274-aa65-77e4370fd9af", "name": "_Kylee"}
+- {"uuid": "25422342-d5cf-42fa-8330-f550e103cfd7", "name": "piecatjustice"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

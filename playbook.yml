@@ -84,30 +84,6 @@
       owner: "{{ minecraft_user.name }}"
       group: "{{ minecraft_group.name }}"
 
-  - name: install dynmap
-    ansible.builtin.get_url:
-      dest: "{{ data_dir.path }}/plugins/dynmap.jar"
-      url: "{{ dynmap_download_url }}"
-      owner: "{{ minecraft_user.name }}"
-      group: "{{ minecraft_group.name }}"
-      mode: 0644
-
-  - name: install luckperms
-    ansible.builtin.get_url:
-      dest: "{{ data_dir.path }}/plugins/luckperms.jar"
-      url: "{{ luckperms_download_url }}"
-      owner: "{{ minecraft_user.name }}"
-      group: "{{ minecraft_group.name }}"
-      mode: 0644
-
-  - name: install eternal light
-    ansible.builtin.get_url:
-      dest: "{{ data_dir.path }}/plugins/EternalLight.jar"
-      url: "{{ eternallight_download_url }}"
-      owner: "{{ minecraft_user.name }}"
-      group: "{{ minecraft_group.name }}"
-      mode: 0644
-
   - name: create luckperms dir
     register: luckperms_dir
     ansible.builtin.file:
@@ -211,6 +187,7 @@
               UID: "{{ minecraft_user.uid }}"
               GID: "{{ minecraft_group.gid }}"
               VERSION: "{{ minecraft_version }}"
+              SPIGET_RESOURCES: "{{ spigot_resource_ids }}"
               TYPE: "{{ minecraft_server_type }}"
               JVM_DD_OPTS: "log4j2.formatMsgNoLookups:true"
             ports:

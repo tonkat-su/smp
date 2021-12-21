@@ -1,7 +1,7 @@
 ---
 minecraft_version: 1.18.1
 minecraft_server_type: SPIGOT
-dynmap_download_url: https://media.forgecdn.net/files/3551/250/Dynmap-3.3-beta-1-spigot.jar
+dynmap_download_url: https://media.forgecdn.net/files/3571/564/Dynmap-3.3-beta-3-spigot.jar
 spiget_resources: "28140,50961"
 
 whitelist_users:

@@ -209,7 +209,7 @@
             stdin_open: true
             restart: unless-stopped
           backup:
-            image: itzg/mc-backup
+            image: itzg/mc-backup:latest
             hostname: mc-tonkat-su-backup
             environment:
               BACKUP_NAME: "{{ server_name }}"
@@ -233,7 +233,7 @@
                 source: server-backups
                 target: /backups
           caddy:
-            image: caddy:2.2.1-alpine
+            image: caddy:2.4.6-alpine
             ports:
               - "{{ server_address }}:80:80"
               - "{{ server_address }}:443:443"
@@ -252,7 +252,7 @@
                 target: /var/www/html
             restart: unless-stopped
           php:
-            image: php:8.0.1-fpm-alpine3.13
+            image: php:8.1.1-fpm-alpine3.15
             volumes:
               - type: bind
                 source: "{{ data_dir.path }}/plugins/dynmap/web"

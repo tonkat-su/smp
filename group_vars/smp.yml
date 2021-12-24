@@ -33,6 +33,9 @@ whitelist_users:
 - {"uuid": "8cf8beb8-4dd5-4264-9ff8-a0257a7038fe", "name": "Rainefan"}
 - {"uuid": "83ab4b1f-9c10-4274-aa65-77e4370fd9af", "name": "_Kylee"}
 - {"uuid": "25422342-d5cf-42fa-8330-f550e103cfd7", "name": "piecatjustice"}
+- {"uuid": "83239fe0-92e2-495f-a5fb-49bf70e43d3e", "name": "zemnmez"}
+- {"uuid": "3174936c-b6c3-47f0-9483-cf265032202d", "name": "iamvaliance"}
+- {"uuid": "b42e9442-3dcf-4990-a749-76e87d7cf1de", "name": "swedofish"}
 
 ops:
 - {"uuid": "be5ac254-28cb-4ca0-897a-7297d38cba29", "name": "bsdlp", "level": 4}

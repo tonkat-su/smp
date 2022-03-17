@@ -1,7 +1,7 @@
 ---
-minecraft_version: 1.18.1
+minecraft_version: 1.18.2
 minecraft_server_type: PAPER
-dynmap_download_url: https://media.forgecdn.net/files/3581/197/Dynmap-3.3-beta-4-spigot.jar
+dynmap_download_url: https://media.forgecdn.net/files/3670/362/Dynmap-3.4-beta-2-spigot.jar
 spiget_resources: "28140,50961"
 
 whitelist_users:
@@ -15,7 +15,6 @@ whitelist_users:
 - {"uuid": "7eeb47a5-7eb0-4e7f-b4a7-a131955dd72a", "name": "snootcat"}
 - {"uuid": "2fc38d53-5cee-4867-abf4-473649aab2be", "name": "Buhlaine"}
 - {"uuid": "caf791a1-59cd-4475-822d-cfd3dee3ab1e", "name": "Tedsfriends"}
-- {"uuid": "20e79d80-71bb-4ea7-a314-0bfbfaef7dfc", "name": "kcjn"}
 - {"uuid": "98aeac3b-285b-4c00-871e-73a5e1eb1fc2", "name": "jseg1234"}
 - {"uuid": "3efa40c8-e2a7-4211-affb-4724a3638bdb", "name": "Patiun"}
 - {"uuid": "74909675-ae75-4674-8e34-eadf92c6623d", "name": "technicalliy"}
